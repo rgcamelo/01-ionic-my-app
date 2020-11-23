@@ -1,0 +1,61 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Registrar</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
+
+        <ion-item>
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input type="text" required name="nombre" [(ngModel)]="cultivo.nombre"></ion-input>
+        </ion-item>
+
+        <hr>
+
+        <ion-item>
+            <ion-label position="floating">Surco</ion-label>
+            <ion-input type="text" required name="surco" [(ngModel)]="cultivo.surco"></ion-input>
+        </ion-item>
+
+        <hr>
+
+        <ion-item>
+            <ion-label position="floating">Ubicacion</ion-label>
+            <ion-input type="text" required name="ubicacion" [(ngModel)]="cultivo.ubicacion"></ion-input>
+        </ion-item>
+
+        <hr>
+
+        <ion-item>
+            <ion-label position="floating">Superficie</ion-label>
+            <ion-input type="text" required name="superficie" [(ngModel)]="cultivo.superficie"></ion-input>
+        </ion-item>
+
+        <hr>
+
+        <ion-item>
+            <ion-label position="floating">Fecha de Cultivo</ion-label>
+            <ion-datetime [value]="fecha.toISOString()" display-format="DD MMMM YYYY"></ion-datetime>
+        </ion-item>
+
+        <hr>
+
+        <ion-button [disabled]="formulario.invalid" type="submit" expand="block">
+            Login
+        </ion-button>
+
+        <hr>
+
+        <ion-button (click)="cancelar()" color="danger" expand="block">
+            Cancelar
+        </ion-button>
+
+
+    </form>
+</ion-content>

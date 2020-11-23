@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/detalles-cultivo"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Registros</ion-title>
+    </ion-toolbar>
+
+    <ion-segment value="">
+
+        <ion-segment-button value="">
+            <ion-icon name="grid-outline"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="Riego">
+            <ion-icon name="water-outline"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="Abono">
+            <ion-icon name="leaf-outline"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="Plagas">
+            <ion-icon name="bug-outline"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="Revision">
+            <ion-icon name="eye-outline"></ion-icon>
+        </ion-segment-button>
+
+
+    </ion-segment>
+
+
+</ion-header>
+
+<ion-content>
+
+    <ion-list>
+
+        <ion-item *ngFor="let heroe of [1,1,1,1,1,1,1,1,1,1,1,1] ">
+            <ion-label>
+                <h3> Nombre </h3> <small> Fecha</small>
+                <p>
+                    Tipo
+                </p>
+            </ion-label>
+            <ion-label slot="end" class="ion-text-right"> icono</ion-label>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

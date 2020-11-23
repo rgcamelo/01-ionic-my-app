@@ -5,6 +5,18 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'detalles-cultivo',
+    loadChildren: () => import('./detalles-cultivo/detalles-cultivo.module').then( m => m.DetallesCultivoPageModule)
+  },
+  {
+    path: 'registros',
+    loadChildren: () => import('./registros/registros.module').then( m => m.RegistrosPageModule)
+  },
+  {
+    path: 'registrar-cultivo',
+    loadChildren: () => import('./registrar-cultivo/registrar-cultivo.module').then( m => m.RegistrarCultivoPageModule)
   }
 ];
 @NgModule({

@@ -1,17 +1,52 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>
+            Home
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
+            <ion-card-title>Awesome Title</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+
+        </ion-card-content>
+    </ion-card>
+
+    <ion-list>
+        <ion-item>
+            <ion-label>Tareas</ion-label>
+        </ion-item>
+        <ion-item routerLink="/detalles-cultivo" *ngFor="let item of [1,1,1,1,1,1,1,1,1,1,1,1,1,1]">
+            <ion-avatar slot="start">
+                <ion-img src="/assets/image.png"></ion-img>
+            </ion-avatar>
+            <ion-label>
+                <h2>Nombre</h2>
+                <h3>surco</h3>
+                <p>Ubicacion</p>
+            </ion-label>
+            <ion-label>
+                <ion-icon name="pin-outline"></ion-icon>
+            </ion-label>
+            <ion-label>
+                <ion-icon name="pin-outline"></ion-icon>
+            </ion-label>
+            <ion-label>
+                <ion-icon name="pin-outline"></ion-icon>
+            </ion-label>
+            <ion-label>
+                <ion-icon name="pin-outline"></ion-icon>
+            </ion-label>
+
+        </ion-item>
+    </ion-list>
+
+
+
 </ion-content>
