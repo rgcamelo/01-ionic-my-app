@@ -1,16 +1,36 @@
-import { Component } from '@angular/core';
-import { AlertController, ModalController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { RegistrarCultivoPage } from '../registrar-cultivo/registrar-cultivo.page';
+import { DataService } from '../services/data.service';
+import { Cultivo } from '../models/cultivo.model';
 
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss']
 })
-export class Tab3Page {
+export class Tab3Page implements OnInit {
 
-  constructor(private alertController: AlertController,
-    private modalCtrl: ModalController) {}
+  cultivos: Cultivo[] = [];
+  cultivo:Cultivo;
+
+  constructor(
+    private modalCtrl: ModalController,
+    private dataService: DataService) {}
+
+    ngOnInit(){
+      this.getCultivos();
+    }
+
+    getCultivos(){
+      this.dataService.getCultivos().subscribe(
+        res=>{
+          if(res!=null){
+            this.cultivos = res.cultivos;
+          }
+        }
+      )
+    }
 
   async registrarCultivo(){
     const modal = await this.modalCtrl.create({
@@ -19,7 +39,11 @@ export class Tab3Page {
     await modal.present();
 
     const { data } = await modal.onDidDismiss();
-    console.log(data);
+    
+    this.getCultivos();
+    
   }
+
+  
   
 }

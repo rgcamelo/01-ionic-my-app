@@ -1,12 +1,12 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-back-button defaultHref="/detalles-cultivo"></ion-back-button>
+            <ion-back-button defaultHref="/detalles-cultivo/{{reference}}"></ion-back-button>
         </ion-buttons>
         <ion-title>Registros</ion-title>
     </ion-toolbar>
 
-    <ion-segment value="">
+    <ion-segment value="" (ionChange)="segmentChanged($event)">
 
         <ion-segment-button value="">
             <ion-icon name="grid-outline"></ion-icon>
@@ -34,15 +34,26 @@
 
     <ion-list>
 
-        <ion-item *ngFor="let heroe of [1,1,1,1,1,1,1,1,1,1,1,1] ">
+        <ion-item *ngFor="let actividad of actividades | filtro:actividad:'tipo' ">
             <ion-label>
-                <h3> Nombre </h3> <small> Fecha</small>
+                <h3> {{ actividad.tipo }} </h3> <small> {{ actividad.fecha | date: 'dd/MM/yyyy - HH:mm' }}</small>
                 <p>
-                    Tipo
+                    {{actividad.nota}}
                 </p>
             </ion-label>
-            <ion-label slot="end" class="ion-text-right"> icono</ion-label>
+            <ion-icon *ngIf=" actividad.tipo == 'Riego' " slot="end" name="water-outline"></ion-icon>
+            <ion-icon *ngIf=" actividad.tipo == 'Abono' " slot="end" name="leaf-outline"></ion-icon>
+            <ion-icon *ngIf=" actividad.tipo == 'Plagas' " slot="end" name="bug-outline"></ion-icon>
+            <ion-icon *ngIf=" actividad.tipo == 'Revision' " slot="end" name="eye-outline"></ion-icon>
         </ion-item>
     </ion-list>
+
+    <ion-fab (click)="registrarActividad()" vertical="bottom" horizontal="end " slot="fixed">
+
+        <ion-fab-button color="success">
+            <ion-icon name="add-outline"></ion-icon>
+        </ion-fab-button>
+
+    </ion-fab>
 
 </ion-content>

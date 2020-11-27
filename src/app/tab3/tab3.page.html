@@ -8,14 +8,14 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
     <ion-list>
-        <ion-item routerLink="/detalles-cultivo" *ngFor="let item of [1,1,1,1,1,1,1,1,1,1,1,1,1,1]">
+        <ion-item *ngFor="let cultivo of cultivos" routerLink="/detalles-cultivo/{{cultivo.reference}}">
             <ion-avatar slot="start">
                 <ion-img src="/assets/planta.png"></ion-img>
             </ion-avatar>
             <ion-label>
-                <h2>Nombre</h2>
-                <h3>surco</h3>
-                <p>Ubicacion</p>
+                <h2>Cultivo de: {{ cultivo.nombre }}</h2>
+                <h3>Surco: {{ cultivo.surco }} </h3>
+                <p>{{ cultivo.ubicacion }}</p>
             </ion-label>
         </ion-item>
     </ion-list>

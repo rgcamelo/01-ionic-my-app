@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
+import { Cultivo } from '../models/cultivo.model';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-registrar-cultivo',
@@ -11,15 +13,9 @@ export class RegistrarCultivoPage implements OnInit {
 
   fecha: Date = new Date();
 
-  cultivo = {
-    nombre: '',
-    surco: '',
-    ubicacion:'',
-    superficie:'',
-    fecha : this.fecha,
-  }
+  cultivo:Cultivo = new Cultivo();
 
-  constructor(private modalCtrl: ModalController) { }
+  constructor(private modalCtrl: ModalController, private dataService:DataService) { }
 
   ngOnInit() {
   }
@@ -28,6 +24,22 @@ export class RegistrarCultivoPage implements OnInit {
     console.log('submit');
     console.log(this.cultivo);
     console.log(formulario);
+
+    if( this.cultivo != null){
+      this.cultivo.fecha = this.fecha;
+      console.log(this.cultivo);
+  
+      this.dataService.postCultivos(this.cultivo).subscribe(p => {
+        if (p != null) {
+          console.log(p);
+        }
+        else{
+          console.log(p);
+        }
+      });
+    }
+
+    this.modalCtrl.dismiss('Registrar');
   }
 
   cancelar(){

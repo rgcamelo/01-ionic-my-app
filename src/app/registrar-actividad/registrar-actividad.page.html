@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>RegistrarActividad</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
+
+        <ion-item>
+            <ion-label position="floating">Referencia</ion-label>
+            <ion-input type="text" required name="referencia" [(ngModel)]="actividad.reference"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Fecha de Actividad</ion-label>
+            <ion-datetime [value]="fecha.toISOString()" display-format="DD MMMM YYYY"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Actividad</ion-label>
+            <ion-select required name="actividad" [(ngModel)]="actividad.tipo" multiple="false" placeholder="Seleccionar Actividad">
+                <ion-select-option value="Riego">Riego</ion-select-option>
+                <ion-select-option value="Abono">Abono</ion-select-option>
+                <ion-select-option value="Plagas">Control de Plagas</ion-select-option>
+                <ion-select-option value="Revision">Revision</ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Nota</ion-label>
+            <ion-textarea name="notas" [(ngModel)]="actividad.nota" rows="6" cols="20" required placeholder="Escribir notas"></ion-textarea>
+        </ion-item>
+
+        <hr>
+
+        <ion-button [disabled]="formulario.invalid" type="submit" expand="block">
+            Registrar
+        </ion-button>
+
+        <hr>
+
+        <ion-button (click)="cancelar()" color="danger" expand="block">
+            Cancelar
+        </ion-button>
+
+
+    </form>
+
+</ion-content>

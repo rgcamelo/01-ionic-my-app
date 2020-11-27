@@ -1,7 +1,7 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-back-button defaultHref="/tab3"></ion-back-button>
+            <ion-back-button defaultHref="/tabs/tab3"></ion-back-button>
         </ion-buttons>
         <ion-title>Informacion</ion-title>
     </ion-toolbar>
@@ -11,19 +11,19 @@
 <ion-content class="ion-padding">
     <ion-card>
         <ion-item>
-            <ion-label>Nombre: </ion-label>
+            <ion-label><b>Nombre:</b> {{ cultivo.nombre}} </ion-label>
         </ion-item>
         <ion-item>
-            <ion-label>Surco: </ion-label>
+            <ion-label><b>Surco:</b> {{ cultivo.surco}} </ion-label>
         </ion-item>
         <ion-item>
-            <ion-label>Ubicacion: </ion-label>
+            <ion-label><b>Ubicacion:</b> {{ cultivo.ubicacion}} </ion-label>
         </ion-item>
         <ion-item>
-            <ion-label>Superficie: </ion-label>
+            <ion-label><b>Superficie(m<sup>2</sup>):</b> {{ cultivo.superficie}} </ion-label>
         </ion-item>
         <ion-item>
-            <ion-label>Fecha Plantacion: </ion-label>
+            <ion-label><b>Fecha Plantacion:</b> {{ cultivo.fecha | date: 'dd/MM/yyyy - HH:mm' }} </ion-label>
         </ion-item>
     </ion-card>
 
@@ -32,10 +32,11 @@
             <ion-label>
                 <h2>Cuidados</h2>
             </ion-label>
-            <ion-icon routerLink="/registros" name="menu-outline"></ion-icon>
+            <ion-icon routerLink="/registros/{{ cultivo.reference}}" name="menu-outline"></ion-icon>
 
         </ion-item>
 
+        <!--
         <ion-card-content>
             <ion-card>
                 <ion-card-header>
@@ -74,6 +75,7 @@
                 </ion-item>
             </ion-card>
         </ion-card-content>
+        -->
     </ion-card>
 
 

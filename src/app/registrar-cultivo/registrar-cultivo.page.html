@@ -19,6 +19,13 @@
         <hr>
 
         <ion-item>
+            <ion-label position="floating">Referencia</ion-label>
+            <ion-input type="text" required name="referencia" [(ngModel)]="cultivo.reference"></ion-input>
+        </ion-item>
+
+        <hr>
+
+        <ion-item>
             <ion-label position="floating">Surco</ion-label>
             <ion-input type="text" required name="surco" [(ngModel)]="cultivo.surco"></ion-input>
         </ion-item>
@@ -33,8 +40,8 @@
         <hr>
 
         <ion-item>
-            <ion-label position="floating">Superficie</ion-label>
-            <ion-input type="text" required name="superficie" [(ngModel)]="cultivo.superficie"></ion-input>
+            <ion-label position="floating">Superficie(m<sup>2</sup>)</ion-label>
+            <ion-input type="number" required name="superficie" [(ngModel)]="cultivo.superficie"></ion-input>
         </ion-item>
 
         <hr>
@@ -47,7 +54,7 @@
         <hr>
 
         <ion-button [disabled]="formulario.invalid" type="submit" expand="block">
-            Login
+            Registrar
         </ion-button>
 
         <hr>
